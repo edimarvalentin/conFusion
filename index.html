@@ -70,7 +70,7 @@
 
                 <!--Carousel-->
     <div row row-content>
-        <div id="carousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div id="mycarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> 
                 <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -112,7 +112,12 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
               </button>
-            
+
+              <div class="btn-group" id="carouselBtn">
+                <button class="btn btn-danger btn-sm" id="myCarouselBtn">
+                    <span class="bi bi-pause"></span>
+                </button>
+              </div>
         </div>
     </div>
 
@@ -293,6 +298,24 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#mycarousel').carousel({interval:2000});
+            $('#myCarouselBtn').click(function(){
+                if($('myCarouselBtn').children('span').hasClass('bi-pause')){
+                    $('#mycarousel').carousel('cycle');
+                    $('myCarouselBtn').children('span').removeClass('bi-pause');
+                    $('myCarouselBtn').children('span').addClass('bi-play');
+                    console.log("Play");
+                }else{
+                    $('#mycarousel').carousel('pause');
+                    $('myCarouselBtn').children('span').removeClass('bi-play');
+                    $('myCarouselBtn').children('span').addClass('bi-pause');
+                    console.log("Pause");
+                }  
+            });
+        });
+    </script>
 </body>
 
 </html>
