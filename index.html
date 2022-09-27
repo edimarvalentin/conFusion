@@ -59,7 +59,7 @@
                 <img src="/img/logo.png" class="img-fluid">
             </div>
             <div class="col-12 col-sm align-self-center">
-                <a class="btn btn-warning col-12" href="#reservationPanel" role="button">Reserve Table</a>
+                <a class="btn btn-warning col-12" data-bs-target="#reservationPanel" data-bs-toggle="modal" role="button">Reserve Table</a>
             </div>
         </div>
     </div>
@@ -121,13 +121,15 @@
         </div>
 
         <!-- Reserve a table card -->
-        <div class="row row-content align-items-center" id="reservationPanel">
-            <div class="offset-1 col-10">
-                <div class="card">
-                    <div class="card-header bg-primary text-white">
-                       <h1>Reserve a Table</h1>
+
+        <div class="modal fade" id="reservationPanel" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reservationPanel">Reserve a Table</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="card-body">
+                    <div class="modal-body">
                         <form>
                             <div class="col-12">
                                 <label class="col-md-2 col-form-label mb-3"><b>Number of Guests</b></label>
@@ -157,6 +159,18 @@
                                   </div>
                             </div>
 
+                            <div class="form-group row mb-3">
+                                <label for="DateTime" class="col-md-2 col-form-label"><b>Section</b></label>
+                                <div class="btn-group col-md-6" role="group">
+                                    <a role="button" class="btn btn-success" href="tel:+85212345678">
+                                        Non-Smoking
+                                    </a>
+                                    <a role="button" class="btn btn-danger"> 
+                                        Smoking
+                                    </a>
+                                </div>
+                            </div>
+
                             <div class="row mb-3">
                                 <label for="DateTime" class="col-md-2 col-form-label"><b>Date and Time</b></label>
                                 <div class="col-6 col-md-4">
@@ -168,7 +182,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <div class="offset-md-2 col-md-10">
+                                <div class="offset-2">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
+                                        Cancel
+                                    </button>
                                     <button type="submit" class="btn btn-primary">
                                         Reserve
                                     </button>
@@ -176,12 +193,9 @@
                             </div>
                         </form>
                     </div>
-                </div>    
+                </div>
             </div>
         </div>
-
-
-    </div>
 
     <footer class="footer">
         <div class="container">
