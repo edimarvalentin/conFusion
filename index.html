@@ -59,7 +59,7 @@
                 <img src="/img/logo.png" class="img-fluid">
             </div>
             <div class="col-12 col-sm align-self-center">
-                <a class="btn btn-warning col-12" data-bs-target="#reservationPanel" data-bs-toggle="modal" role="button">Reserve Table</a>
+                <a class="btn btn-warning col-12" role="button" id="reservationBtn">Reserve Table</a>
             </div>
         </div>
     </div>
@@ -295,9 +295,10 @@
     </footer>
 
     <!--jQuery, Popper.js and Bootstrap JS-->
-    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
     <script>
         $(document).ready(function(){
             $('#mycarousel').carousel({interval:2000});
@@ -313,6 +314,16 @@
                     $('myCarouselBtn').children('span').addClass('bi-pause');
                     console.log("Pause");
                 }  
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('#reservationBtn').click(function(){
+                const myModal = new bootstrap.Modal('#reservationPanel', {keyboard: true, focus: true});
+                myModal.show();
+                console.log("Show modal");
             });
         });
     </script>
